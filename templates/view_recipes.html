@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}RecipeHub - View Recipes{% endblock %}
+
+{% block content1 %}
+    <div class="container">
+        <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">View Your Delicious Creations</span>
+            <span class="section-heading-lower">Explore Your Recipe Collection</span>
+        </h2>
+        <div class="row">
+            {% for recipe in recipes %}
+                <div class="col-lg-4 mb-4">
+                    <div class="bg-faded p-4 text-center rounded">
+                        <h3 class="mb-3">{{ recipe.name }}</h3>
+                        <img src="{{ recipe.image_path }}" alt="{{ recipe.name }}" class="img-fluid rounded mb-3" style="width: 300px; height: 300px;">
+                        <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                        <p><strong>Preparation Instructions:</strong> {{ recipe.preparation_instructions }}</p>
+                        <p><strong>Serving Instructions:</strong> {{ recipe.serving_instructions }}</p>
+                        <a href="{{ url_for('recipe', recipe_name=recipe.name) }}" class="btn btn-primary btn-sm">View Recipe</a><!-- You can update this link to a specific recipe detail page -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

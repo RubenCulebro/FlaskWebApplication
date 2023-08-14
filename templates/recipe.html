@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}RecipeHub - {{ recipe.name }}{% endblock %}
+
+{% block content1 %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-xl-9 mx-auto">
+            <div class="cta-inner bg-faded text-center rounded p-5">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">{{ recipe.name }}</span>
+                </h2>
+                <img src="{{ recipe.image_path }}" alt="{{ recipe.name }}" class="img-fluid rounded mb-4" style="width: 400px; height: 400px;">
+                <h4 class="mb-3">Ingredients:</h4>
+                <p>{{ recipe.ingredients }}</p>
+                <h4 class="mb-3">Preparation Instructions:</h4>
+                <p>{{ recipe.preparation_instructions }}</p>
+                <h4 class="mb-3">Serving Instructions:</h4>
+                <p>{{ recipe.serving_instructions}}</p>
+                <a class="btn btn-primary btn-xl mt-4" href="{{ url_for('view_recipes') }}">View Recipes</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

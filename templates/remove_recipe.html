@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}RecipeHub - Remove Recipes {% endblock %}
+
+{% block content1 %}
+    <div class="container">
+        <h2 class="text-center">Remove Recipes</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Ingredients</th>
+                    <th>Preparation Instructions</th>
+                    <th>Serving Instructions</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.name }}</td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.preparation }}</td>
+                    <td>{{ recipe.serving }}</td>
+                    <td><img src="{{ recipe.image_path }}" alt="{{ recipe.name }}" width="100"></td>
+                    <td>
+                        <form action="{{ url_for('delete_recipe', recipe_name=recipe.name) }}" method="post">
+                            <button type="submit" class="btn btn-danger">Delete Recipe</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+

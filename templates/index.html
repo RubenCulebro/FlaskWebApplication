@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}RecipeHub - Home{% endblock %}
+
+{% block content1 %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">A tailored tool designed  for food enthusiasts like you</span>
+                        <span class="section-heading-lower">Create and manage your own digital cookbook</span>
+                    </h2>
+                    <p class="mb-0">Have a family recipe you cherish? Maybe a culinary experiment you're proud of? Upload it to your digital cookbook. Keep everything organized, editable, and easily accessible. Search for your favorites with a click and remove any you no longer need. Simply add new recipes with ingredients, instructions, and images. Edit or remove them anytime. Your favorite cooking directions are always just a click away.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content2 %}
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ url_for('static', filename='assets/img/intro.jpg') }}" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Manage Your Culinary Creations</span>
+                    <span class="section-heading-lower">Easy to Use, Designed Just for You</span>
+                </h2>
+                <p class="mb-3">Whether you're a seasoned cook or someone just starting out in the kitchen, this app is tailored for your needs. Quickly upload new recipes with all the details you need. View your recipe collection, search for that specific dish for your dinner party, or remove outdated recipes with just a few clicks.</p>
+                <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="{{ url_for('upload') }}">Upload new recipes</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+

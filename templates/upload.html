@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}RecipeHub - Upload Recipes{% endblock %}
+
+{% from "form-macros.html" import render_field %}
+
+{% block content1 %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Upload Your Recipe</span>
+                    </h2>
+                    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+                        {{ form.hidden_tag() }}
+                        {{ render_field(form.name) }}
+                        {{ render_field(form.ingredients) }}
+                        {{ render_field(form.preparation_instructions) }}
+                        {{ render_field(form.serving_instructions) }}
+                        {{ render_field(form.image_file) }}
+                        {{ form.submit(class_="btn btn-primary") }}
+                    </form>
+                    {% if message %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
