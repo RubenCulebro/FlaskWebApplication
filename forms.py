@@ -12,15 +12,3 @@ class UploadRecipeForm(FlaskForm):
 
 class SearchForm(FlaskForm):
     search = StringField('Search', validators=[DataRequired()])
-
-# from flask_wtf import FlaskForm
-# from wtforms import StringField, TextAreaField, FileField
-# from wtforms.validators import InputRequired
-# from flask_wtf.file import FileAllowed
-#
-# class RecipeForm(FlaskForm):
-#     name = StringField('Recipe Name', validators=[InputRequired()])
-#     ingredients = TextAreaField('Ingredients', validators=[InputRequired()])
-#     preparation_instructions = TextAreaField('Preparation Instructions', validators=[InputRequired()])
-#     serving_instructions = TextAreaField('Serving Instructions', validators=[InputRequired()])
-#     image = FileField('Image File', validators=[FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])

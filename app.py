@@ -6,7 +6,7 @@ from forms import UploadRecipeForm, SearchForm
 import pandas as pd
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key' # Change this to a secure key
+app.config['SECRET_KEY'] = 'KJDKJDKJ334335KJK3KJ43456'
 app.config['SUBMITTED_DATA'] = os.path.join('static', 'data_dir', '')
 app.config['SUBMITTED_IMG'] = os.path.join('static', 'image_dir', '')
 
@@ -49,7 +49,6 @@ def delete_recipe(recipe_name):
 
     os.rename(temp_file_path, os.path.join(app.config['SUBMITTED_DATA'], 'recipes.csv'))
 
-    # Delete the image file if found
     if image_path and os.path.exists(image_path):
         os.remove(image_path)
 
@@ -118,29 +117,6 @@ def view_recipes():
     return render_template('view_recipes.html', recipes=recipes)
 
 
-# @app.route('/recipe/<int:recipe_id>', methods=['GET'])
-# def recipe(recipe_id):
-#     recipe_data = []
-#     with open(os.path.join(app.config['SUBMITTED_DATA'], 'recipes.csv'), 'r') as file:
-#         reader = csv.reader(file)
-#         for index, row in enumerate(reader):
-#             if index == recipe_id:
-#                 recipe_data = {
-#                     'name': row[0],
-#                     'ingredients': row[1],
-#                     'preparation_instructions': row[2],
-#                     'serving_instructions': row[3],
-#                     'image_path': os.path.join(app.config['SUBMITTED_IMG'], row[4]), # corrected image path
-#                 }
-#                 break
-#
-#     if not recipe_data:
-#         flash('Recipe not found!', 'danger')
-#         return redirect(url_for('index'))
-#
-#     return render_template('recipe.html', recipe=recipe_data)
-
-
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     form = UploadRecipeForm()
@@ -171,18 +147,6 @@ def upload():
 @app.route('/')
 def index():
     return render_template('index.html')
-
-# @app.route('/')
-# def index():
-#     return render_template('index.html',
-#                            heading_upper1='Section heading upper',
-#                            heading_lower1='Section heading lower',
-#                            content1='Content',
-#                            heading_upper2='Section heading upper',
-#                            heading_lower2='Section heading lower',
-#                            content2='Content',
-#                            button_link='#!',
-#                            button_description='Description for intro-button mx-auto')
 
 if __name__ == '__main__':
     app.run(debug=True)
